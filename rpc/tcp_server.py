@@ -3,8 +3,8 @@ __author__ = 'nightfade'
 import socket
 import asyncore
 
-from tcp_connection import TcpConnection
-from rpc_channel import RpcChannel
+from rpc.tcp_connection import TcpConnection
+from rpc.rpc_channel import RpcChannel
 import logger
 
 

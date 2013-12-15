@@ -1,6 +1,6 @@
 __author__ = 'nightfade'
 
-from echo_service_pb2 import IEchoService, IEchoClient_Stub
+from example.echo_service_pb2 import IEchoService, IEchoClient_Stub
 import logger
 
 

@@ -3,14 +3,13 @@ __author__ = 'nightfade'
 import unittest
 import asyncore
 
-from echo_service_pb2 import EchoString, IEchoService_Stub
-from tcp_server import TcpServer
-from tcp_client import TcpClient
-from tcp_connection import TcpConnection
-from rpc_controller import RpcController
-from echo_service import EchoService
-from echo_client import EchoClient
-import logger
+from example.echo_service_pb2 import EchoString, IEchoService_Stub
+from rpc.tcp_server import TcpServer
+from rpc.tcp_client import TcpClient
+from rpc.tcp_connection import TcpConnection
+from rpc.rpc_controller import RpcController
+from example.echo_service import EchoService
+from example.echo_client import EchoClient
 
 
 class DummyService(object):
@@ -57,7 +56,7 @@ class TcpServerClientTest(unittest.TestCase):
         echo_recorder = EchoRecorder()
         rpc_count = 0
 
-        for i in xrange(100):
+        for i in xrange(10):
             asyncore.loop(0.1, count=1)
             if client.stub:
                 if not client.service.streamout:
@@ -68,7 +67,7 @@ class TcpServerClientTest(unittest.TestCase):
                 client.stub.echo(controller, request, None)
                 rpc_count += 1
 
-        asyncore.loop(0.1, count=100)
+        asyncore.loop(0.1, count=30)
 
         self.assertEqual(len(echo_recorder.record), rpc_count)
 

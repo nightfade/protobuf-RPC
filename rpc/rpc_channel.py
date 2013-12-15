@@ -1,7 +1,7 @@
 import struct
 
 from google.protobuf import service
-from rpc_controller import RpcController
+from rpc.rpc_controller import RpcController
 import logger
 
 
