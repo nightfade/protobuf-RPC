@@ -1,0 +1,21 @@
+package nightfade;
+
+option cc_generic_services = true;
+option py_generic_services = true;
+
+message Void {}
+
+message EchoString {
+    required string message = 1;
+}
+
+
+service IEchoService {
+    rpc echo(EchoString) returns(Void);
+}
+
+
+service IEchoClient {
+    rpc respond(EchoString) returns(Void);
+}
+
